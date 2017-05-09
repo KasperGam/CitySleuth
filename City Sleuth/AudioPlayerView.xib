@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioPlayerView" customModule="City_Sleuth" customModuleProvider="target">
+            <connections>
+                <outlet property="playButton" destination="MwP-bY-M0C" id="OYt-hK-4zi"/>
+                <outlet property="playIndicator" destination="tNJ-9F-fc9" id="40N-Zu-upI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="s2S-mR-aUu">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwP-bY-M0C">
+                    <rect key="frame" x="5" y="8" width="78" height="74"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="78" id="X4X-hS-gaC"/>
+                    </constraints>
+                    <state key="normal" image="playIcon"/>
+                    <connections>
+                        <action selector="playPausePressed:" destination="-1" eventType="touchUpInside" id="yIs-HZ-spF"/>
+                    </connections>
+                </button>
+                <slider opaque="NO" contentMode="scaleToFill" semanticContentAttribute="playback" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tNJ-9F-fc9" customClass="PlayerSliderView" customModule="City_Sleuth" customModuleProvider="target">
+                    <rect key="frame" x="89" y="30" width="280" height="31"/>
+                    <color key="tintColor" white="0.14759857379999999" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="setAudioPos:" destination="-1" eventType="editingDidEnd" id="nVo-en-GzC"/>
+                        <action selector="userChangeValue:" destination="-1" eventType="valueChanged" id="Gc6-jk-C9f"/>
+                    </connections>
+                </slider>
+            </subviews>
+            <constraints>
+                <constraint firstItem="MwP-bY-M0C" firstAttribute="bottom" secondItem="s2S-mR-aUu" secondAttribute="bottomMargin" id="8pa-dX-geh"/>
+                <constraint firstItem="MwP-bY-M0C" firstAttribute="leading" secondItem="s2S-mR-aUu" secondAttribute="leading" constant="5" id="XB3-hI-Z6c"/>
+                <constraint firstItem="tNJ-9F-fc9" firstAttribute="leading" secondItem="MwP-bY-M0C" secondAttribute="trailing" constant="8" symbolic="YES" id="eUI-ri-dmF"/>
+                <constraint firstItem="tNJ-9F-fc9" firstAttribute="trailing" secondItem="s2S-mR-aUu" secondAttribute="trailingMargin" id="oi5-lK-KGd"/>
+                <constraint firstItem="MwP-bY-M0C" firstAttribute="top" secondItem="s2S-mR-aUu" secondAttribute="topMargin" id="yDl-Wp-uwX"/>
+                <constraint firstItem="MwP-bY-M0C" firstAttribute="centerY" secondItem="tNJ-9F-fc9" secondAttribute="centerY" id="yw4-ck-Q5R"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="135.5" y="38"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="playIcon" width="24" height="24"/>
+    </resources>
+</document>

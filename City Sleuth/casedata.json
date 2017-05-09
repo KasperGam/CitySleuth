@@ -1,0 +1,187 @@
+ [{
+  "id": 1,
+  "name": "Coffee, Love, & Murder",
+  "image": "coffeelovemurder",
+  "date": "11:00 pm Friday, April 14",
+  "startName" : "The Courthouse",
+  "location" : "Denmark, Copenhagen",
+  "crime": "Murder, 1st Degree",
+  "victim": "Line Lastname",
+  "introplot": "You should start your investigation at the Courthouse at Nytorv 25, 1450 København K. We have brought a Mark Strollen in for questioning. He was the one who alerted police and supposedly found the body this morning. Our experts have found that she was actually murdered late on Friday night.",
+  "hints" : [{
+             "id" : 0,
+             "hint" : "Mark mentioned a coffee shop in his testimony. Maybe you should start there."
+             }
+             ],
+  "evidence" : [{
+                "name" : "Briefing",
+                "id" : -1,
+                "description" : "Initial case briefing.",
+                "filename" : "introCoffeeLoveMurder",
+                "type" : "picture",
+                "discoveredAt" : "Station"
+                },
+                {
+                "name" : "Coffee House footage",
+                "id" : 0,
+                "description" : "Footage you found while investigating the coffee house. The video seems stuck, but the audio is working.",
+                "filename" : "example.wav",
+                "type" : "audio",
+                "discoveredAt" : "Coffee House"
+               },
+               {
+                "name" : "Bartender's Testimony",
+                "id" : 1,
+                "description" : "Testimony from the bartender at the bar Mark was drinking at the night Line was murdered.",
+                "filename" : "example.txt",
+                "type" : "text",
+                "discoveredAt" : "Bar"
+                },
+                {
+                "name" : "Tumblr Account",
+                "id" : 2,
+                "description" : "Strange private tumblr account, used to harass Line",
+                "filename" : "https://www.tumblr.com/login",
+                "type" : "web",
+                "discoveredAt" : "7/11 Kiosk"
+                },
+                {
+                "name" : "Tumblr Password",
+                "id" : 3,
+                "description" : "Carle believes this might be the password to something.",
+                "filename" : "*misty0144*",
+                "type" : "text",
+                "discoveredAt" : "Carle's Appartment"
+                }
+               ],
+  "locations" : [{
+                 "name" : "Courthouse" ,
+                 "id" : 0,
+                 "backgroundImage" : "courthouse",
+                 "address" : "Nytorv 25, 1450 København K, Denmark",
+                 "latitude" : 55.677227,
+                 "longitude" : 12.572924,
+                 "startText" : "Start your investigation here",
+                 "afterText" : "The courthouse where you took Mark's testimony",
+                 "unlockLocations" : [1],
+                 "suspects" : [0],
+                 "evidence" : [],
+                 "hints" : [0]
+              },
+              {
+                 "name" : "Coffee House",
+                 "id" : 1,
+                 "backgroundImage" : "coffeehouse",
+                 "address" : "Kompagnistræde 17, 1208 København K, Denmark",
+                 "latitude" : 55.677171,
+                 "longitude" : 12.575734,
+                 "startText" : "",
+                 "afterText" : "The coffee house where Line works.",
+                 "unlockLocations" : [2, 3],
+                 "suspects" : [1],
+                 "evidence" : [0],
+                 "hints" : []
+              },
+              {
+                 "name" : "Museum",
+                 "id" : 2,
+                 "backgroundImage" : "museum",
+                 "address" : "Ny Vestergade 10, 1471 København K, Denmark",
+                 "latitude" : 55.6745,
+                 "longitude" : 12.574644,
+                 "startText" : "",
+                 "afterText" : "The museum Kristine went to. Nothing was here.",
+                 "unlockLocations" : [],
+                 "suspects" : [],
+                 "evidence" : [],
+                 "hints" : []
+              },
+              {
+                 "name" : "Bar",
+                 "id" : 3,
+                 "backgroundImage" : "bar",
+                 "address" : "Vestergade 17, 1456 København K, Denmark",
+                 "latitude" : 55.677536,
+                 "longitude" : 12.570081,
+                 "startText" : "",
+                 "afterText" : "The bar where Mark and his friends were drinking.",
+                 "unlockLocations" : [4, 5],
+                 "suspects" : [],
+                 "evidence" : [1],
+                 "hints" : []
+                 },
+                 {
+                 "name" : "7/11 Kiosk",
+                 "id" : 4,
+                 "backgroundImage" : "kiosk",
+                 "address" : "Frederiksberggade 2, 1459 København K, Denmark",
+                 "latitude" : 55.677767,
+                 "longitude" : 12.572009,
+                 "startText" : "",
+                 "afterText" : "Where you bumped into Kristine buying cigarettes.",
+                 "unlockLocations" : [5],
+                 "suspects" : [2],
+                 "evidence" : [2],
+                 "hints" : []
+                 },
+                 {
+                 "name" : "Carle's Apartment",
+                 "id" : 5,
+                 "backgroundImage" : "apartment",
+                 "address" : "Teglgårdstræde 7, 1452 København K, Denmark",
+                 "latitude" : 55.679425,
+                 "longitude" : 12.568236,
+                 "startText" : "",
+                 "afterText" : "Carle, Line's neighbor, had an obsession with her.",
+                 "unlockLocations" : [4],
+                 "suspects" : [3],
+                 "evidence" : [3],
+                 "hints" : []
+                 }
+              ],
+  "suspects": [{
+               "name": "Mark Strollen",
+               "age": 28,
+               "id" : 0,
+               "image" : "mark",
+               "sex": "Male",
+               "occupation": "",
+               "relationship": "boyfriend",
+               "alibi": "At bar for night of murder, left for 10 minutes around 1:00 am to get wallet",
+               "testimony": "On the night in question (Friday, April 14, 2017), I was at the ____ Bar near the apartment having some drinks. I left around 8:00 pm, and did not see the victim arrive back. I spent several hours there, but when the time came to pay my tab, I realized I did not have my wallet with me and must have left it at the apartment. I went back to get it, noticing the victim was asleep (so I presumed) and quietly retrieved it and returned to the bar. Afterwards, I had one too many drinks and was helped by a friend back to his place where I crashed on the couch. The next day, I returned to the apartment to find the horrific scene. I pulled back the pillow and comforter to find her dead. I called the police immediately and they arrived around 10:45 am. Lina and I have been dating on and off for several years. We often get into heated arguments that end pretty badly. But I would never hurt her or do anything like this. In fact, I know the guy across the street is always looking over her into this apartment, with a weird face that is hard to read."
+               },
+               {
+               "name": "Kristine Flyne",
+               "age": 24,
+               "id" : 1,
+               "image" : "kristine",
+               "sex": "Female",
+               "occupation": "Barista",
+               "relationship": "Best Friend / Coworker",
+               "alibi": "At home watching Netflix",
+               "testimony": "Mark and I argued, sure.  He was literally scum and treated Line like shit.  I am, was, (pauses) her best friend, and thought she deserved the world.  And Mark definitely wasn’t the world.  I always told her she was way out of his league, but I she just had a thing for bad boys. I mean, every guy she’s dated has been in some sort of trouble.  Mark was just more long-term than the previous ones.  And I mean, she had choices.  It wasn’t just petty criminals or creepers like that neighbor.  Everyone liked Line. \nI can’t believe there’s even a doubt that Mark did it. I mean, he was in her apartment on the night of the murder around the time of death!\nGod, I knew something was going to happen.  I mean, Mark had gotten so overprotective as of late, making her check in with him when she went places alone.  Not that I blame him completely.  Line had recently started getting some weird messages."
+               },
+               {
+               "name": "Jens Brohler",
+               "age": 34,
+               "id" : 2,
+               "image" : "jens",
+               "sex": "Male",
+               "occupation": "Coffee Shop Owner",
+               "relationship": "Boss",
+               "alibi": "At concert",
+               "testimony": "I have known the victim for several years, ever since she started working for me four years ago. She is a good employee, always thorough, good with customers, and a delight to have in the shop. On the night in question (Friday, April 14, 2017), we were the last two finishing up for the night and getting ready for the weekend. I was going to a concert later that night, but told her to go ahead as she had put in a good day’s work and the concert was close to the shop. She left around 8:45 pm and I closed up and left shortly after, around 9:00 pm. I then attended the concert, and took pictures that I uploaded to my tumblr page when there. After the concert ended, around 2:00 am, I headed home, arriving there around 2:30 am. I did not hear what happened until I opened the shop at our saturday opening of 12:00 pm and the victim and her best friend did not come in for their shifts. I called, and upon hearing what happened, was appalled and understood Kristine’s grief. It is a tragedy. She had heard from Mark, who I have never liked. If he ended up doing this I will never forgive him. He didn’t deserve her."
+               },
+               {
+               "name": "Carle Nisine",
+               "age": 32,
+               "id" : 3,
+               "image" : "carle",
+               "sex": "Male",
+               "occupation": "Web moderator and developer",
+               "relationship": "Neighbor",
+               "alibi": "At home, on the internet",
+               "testimony": "The victim has been my neighbor for several years. We have only talked face to face twice, and she was always very nice. On the night in question (Friday, April 14, 2017), I was at home, not up to much. I spend a lot of free time online, as I am not the most social person. However, I would never do anything like this. I admit to having romantic affections towards the victim, but I am a pacifist and would never hurt anyone. She was a great neighbor and I hope you find whoever did this! I never really trusted that boyfriend of hers, he seemed to have a hot head and I know the police have been to that apartment before."
+               }
+               ]
+  }]
