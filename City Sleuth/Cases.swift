@@ -62,7 +62,10 @@ class Cases {
                 let lunlocks = litem["unlockLocations"].arrayObject!
                 let levidence = litem["evidence"].arrayObject!
                 let lhints = litem["hints"].arrayObject!
-                locations.append(Location(name: lname, address: laddress, id: lid, latitude: llat, longitude: llong, startTxt: lstart, aftText: lafter, unlocks: lunlocks as! Array<Int>, suspects: lsuspects as! Array<Int>, evidence: levidence as! Array<Int>, background: lbackground, hints: lhints as! Array<Int>))
+                let laudio = litem["audioFile"].string!
+                let ltip = litem["afterTip"].string!
+                let lobjective = litem["afterObjective"].string!
+                locations.append(Location(name: lname, address: laddress, id: lid, latitude: llat, longitude: llong, startTxt: lstart, aftText: lafter, unlocks: lunlocks as! Array<Int>, suspects: lsuspects as! Array<Int>, evidence: levidence as! Array<Int>, background: lbackground, hints: lhints as! Array<Int>, audioFile : laudio, tip : ltip, objective : lobjective))
             }
             
             var evidence = [Evidence]()

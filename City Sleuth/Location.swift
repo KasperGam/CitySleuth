@@ -34,9 +34,15 @@ class Location {
     
     var backgroundImg : String
     
+    var audioFile : String
+    
+    var tip : String
+    
+    var objective : String
+    
     var found = false
     
-    init(name: String, address : String, id: Int, latitude : Double, longitude: Double, startTxt : String, aftText : String, unlocks: Array<Int>, suspects: Array<Int>, evidence : Array<Int>, background : String, hints: Array<Int>) {
+    init(name: String, address : String, id: Int, latitude : Double, longitude: Double, startTxt : String, aftText : String, unlocks: Array<Int>, suspects: Array<Int>, evidence : Array<Int>, background : String, hints: Array<Int>, audioFile : String, tip : String, objective : String) {
         self.address = address
         self.id = id
         self.lat = latitude
@@ -49,6 +55,9 @@ class Location {
         self.evidence = evidence
         self.backgroundImg = background
         self.hints = hints
+        self.audioFile = audioFile
+        self.tip = tip
+        self.objective = objective
     }
     
 }

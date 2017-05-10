@@ -52,6 +52,14 @@
                 "filename" : "*misty0144*",
                 "type" : "text",
                 "discoveredAt" : "Carle's Appartment"
+                },
+                {
+                "name" : "Mark's Testimony",
+                "id" : 4,
+                "description" : "Testimony taken from mark at the courthouse.",
+                "filename" : "markTestimony",
+                "type" : "audio",
+                "discoveredAt" : "Courthouse"
                 }
                ],
   "locations" : [{
@@ -65,8 +73,11 @@
                  "afterText" : "The courthouse where you took Mark's testimony",
                  "unlockLocations" : [1],
                  "suspects" : [0],
-                 "evidence" : [],
-                 "hints" : [0]
+                 "evidence" : [4],
+                 "hints" : [0],
+                 "audioFile" : "markTestimony",
+                 "afterTip" : "Mark's testimony is unlocked. You can find it in My Evidence.",
+                 "afterObjective" : "Look for leads about Kristine and Line's neighbor."
               },
               {
                  "name" : "Coffee House",
@@ -80,7 +91,10 @@
                  "unlockLocations" : [2, 3],
                  "suspects" : [1],
                  "evidence" : [0],
-                 "hints" : []
+                 "hints" : [],
+                 "audioFile" : "jensKristine",
+                 "afterTip" : "You now have Jens' suspect file. Find it in Suspects.",
+                 "afterObjective" : "Verify Mark's testimony"
               },
               {
                  "name" : "Museum",
@@ -94,7 +108,10 @@
                  "unlockLocations" : [],
                  "suspects" : [],
                  "evidence" : [],
-                 "hints" : []
+                 "hints" : [],
+                 "audioFile" : "foundNothing",
+                 "afterTip" : "You didn't find anything here. Try somewhere else!",
+                 "afterObjective" : "Verify Mark's testimony"
               },
               {
                  "name" : "Bar",
@@ -108,7 +125,10 @@
                  "unlockLocations" : [4, 5],
                  "suspects" : [],
                  "evidence" : [1],
-                 "hints" : []
+                 "hints" : [],
+                 "audioFile" : "bartenderTestimony",
+                 "afterTip" : "",
+                 "afterObjective" : "Investigate Carle and Kristine"
                  },
                  {
                  "name" : "7/11 Kiosk",
@@ -122,7 +142,10 @@
                  "unlockLocations" : [5],
                  "suspects" : [2],
                  "evidence" : [2],
-                 "hints" : []
+                 "hints" : [],
+                 "audioFile" : "kristineTestimony",
+                 "afterTip" : "",
+                 "afterObjective" : "Investigate Carle"
                  },
                  {
                  "name" : "Carle's Apartment",
@@ -136,7 +159,10 @@
                  "unlockLocations" : [4],
                  "suspects" : [3],
                  "evidence" : [3],
-                 "hints" : []
+                 "hints" : [],
+                 "audioFile" : "carleTestimony",
+                 "afterTip" : "",
+                 "afterObjective" : "Investigate Kristine"
                  }
               ],
   "suspects": [{
@@ -148,7 +174,7 @@
                "occupation": "",
                "relationship": "boyfriend",
                "alibi": "At bar for night of murder, left for 10 minutes around 1:00 am to get wallet",
-               "testimony": "On the night in question (Friday, April 14, 2017), I was at the ____ Bar near the apartment having some drinks. I left around 8:00 pm, and did not see the victim arrive back. I spent several hours there, but when the time came to pay my tab, I realized I did not have my wallet with me and must have left it at the apartment. I went back to get it, noticing the victim was asleep (so I presumed) and quietly retrieved it and returned to the bar. Afterwards, I had one too many drinks and was helped by a friend back to his place where I crashed on the couch. The next day, I returned to the apartment to find the horrific scene. I pulled back the pillow and comforter to find her dead. I called the police immediately and they arrived around 10:45 am. Lina and I have been dating on and off for several years. We often get into heated arguments that end pretty badly. But I would never hurt her or do anything like this. In fact, I know the guy across the street is always looking over her into this apartment, with a weird face that is hard to read."
+               "testimony": "On the 14th I was at the Bar near Line’s apartment drinking with some friends.  Around 11… 11.30, I realized I didn’t have my wallet.  The bartender and I are pretty friendly, so he knew I was good for it.  I remembered having it at Line’s earlier in the day, so I walked there from the bar.\n\nI let myself into the apartment with my key, and noticed the lights were out.  My wallet was on the kitchen counter, and when I picked it up I could see through the bedroom door.  I thought she -- Line -- was sleeping, so I quietly grabbed my wallet and left. I’m pretty sure I locked the door when I left. Besides me and Line, Kristine had the only other key to the apartment, in case one of us got locked out. Line sometimes goes to sleep early, and I had already had a few drinks, I guess I didn’t think anything of it.\n\nI got back to the bar, it couldn’t have taken more than 15 minutes.  Afterwards, I had one too many drinks and my friends helped me back to one of their apartments.  I crashed on the couch. The next morning, I returned to Line’s apartment… I was worried she’d overslept her alarm, so I tried to wake her up… and… she was just like lying there. I called the police immediately and they arrived twenty minutes later.\n\nLine and I had been dating on and off for several years. We argued sometimes, pretty intensely.  But I would never kill her!  I was just worried about her.  She was really independent, and I was always worried something would happen to her.  The city’s pretty peaceful, but there are always bad guys looking for vulnerable people.  Line would stay late at that coffee place she worked at… you know, the one on Kompagnistraede... with the bread in the window?  She insisted on walking home alone and I was worried she would get attacked.  People noticed her.  People like that weird neighbor of hers.  Have you talked to him yet?  I’m pretty sure he was stalking her.    I could see him looking over at her windows from his apartment.  She tried to get a restraining order and everything.  You should be talking to him… not me.\n\nI would never hurt Line."
                },
                {
                "name": "Kristine Flyne",

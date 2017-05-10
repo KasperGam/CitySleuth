@@ -24,6 +24,8 @@ import AVFoundation
     
     var isEnabled = true
     
+    var callWhenAudioStops = doNothing
+    
     func setup()
     {
         view = loadViewFromNib()
@@ -73,6 +75,10 @@ import AVFoundation
         playIndicator.value = Float((player?.currentTime)!)
     }
     
+    func startPlaying() {
+        playPausePressed(self)
+    }
+    
     func setEnabled(enabled : Bool) {
         isEnabled = enabled
         playIndicator.isEnabled = isEnabled
@@ -82,8 +88,8 @@ import AVFoundation
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playButton.setImage(UIImage(named: "pausedIcon"), for: UIControlState.normal)
         self.playIndicator.value = playIndicator.minimumValue
+        callWhenAudioStops()
     }
-    
     
     @IBAction func playPausePressed(_ sender: Any) {
         if (player != nil) {
@@ -116,6 +122,8 @@ import AVFoundation
     }
     
 }
+
+private func doNothing(){}
 
 class PlayerSliderView : UISlider {
     

@@ -52,10 +52,8 @@ class EvidenceViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath){
-        var evidence = (curCase?.evidence)!
         
         self.selectedEvidence = evidence[indexPath.row]
-        
         performSegue(withIdentifier: "toEvidenceInspector", sender: self)
     }
     

@@ -26,6 +26,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBOutlet weak var audioPlayer: AudioPlayerView!
     
+    @IBOutlet weak var tipView: UIView!
+    
+    @IBOutlet weak var tipLabel: UILabel!
+    
+    var tap = UITapGestureRecognizer(target: nil, action: #selector(hideTipView))
+    
     var userLocaiton : CLLocationCoordinate2D?
     
     var currentLoc : Location?
@@ -33,14 +39,20 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tap = UITapGestureRecognizer(target: self, action: #selector(hideTipView))
+        
         audioPlayer.isHidden = true
         audioPlayer.setEnabled(enabled: false)
+        audioPlayer.callWhenAudioStops = afterAudio
+        
+        tipView.isUserInteractionEnabled = false
+        tipView.isHidden = true
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
-        startAtLabel.text = (curCase)?.startplace
+        startAtLabel.text = "Starting Point"
         
         if (CLLocationManager.locationServicesEnabled()) {
             startUpdates()
@@ -88,17 +100,52 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                         if mapView != nil && view.subviews.contains(mapView) {
                             mapView.removeFromSuperview()
                         }
+                        self.descriptionText.text = ""
                         backgroundImage.image = UIImage(named: l.backgroundImg)
                         self.currentLoc = l
                         self.startAtLabel.text = l.name
                         self.audioPlayer.isHidden = false
                         self.audioPlayer.setEnabled(enabled: true)
+                        
+                        let url = URL(fileURLWithPath: Bundle.main.path(forResource: l.audioFile, ofType: "mp3")!)
+                        self.audioPlayer.songURL = url
+                        self.audioPlayer.setupPlayer()
+                        self.audioPlayer.startPlaying()
                     }
                 }
             }
         }
-        
     }
+    
+    func afterAudio () {
+        self.audioPlayer.setEnabled(enabled: false)
+        self.audioPlayer.isHidden = true
+        
+        _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (Timer) -> () in
+                self.tipView.isUserInteractionEnabled = true
+                self.tipLabel.text = (self.currentLoc?.tip)!
+                self.tipView.isHidden = false
+            
+                self.descriptionText.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+                self.descriptionText.layer.borderWidth = 1
+                self.descriptionText.layer.borderColor = UIColor.white.cgColor
+                self.descriptionText.layer.cornerRadius = 5
+                let str = NSMutableAttributedString(string: " OBJECTIVE: " + (self.currentLoc?.objective)!)
+                str.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location: 1, length: 10))
+                str.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 16), range: NSRange(location: 1, length: 10))
+                self.descriptionText.attributedText = str
+                self.backgroundImage.addGestureRecognizer(self.tap)
+                self.view.addGestureRecognizer(self.tap)
+            })
+    }
+    
+    func hideTipView() {
+        self.tipView.isUserInteractionEnabled = false
+        self.tipView.isHidden = true
+        self.backgroundImage.removeGestureRecognizer(tap)
+        self.view.removeGestureRecognizer(tap)
+    }
+    
     
     @IBAction func unwindToMainGame(segue: UIStoryboardSegue) {
     }

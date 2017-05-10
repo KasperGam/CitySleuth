@@ -40,6 +40,8 @@ class Case {
     
     var curHint = ""
     
+    var curLoc : Location?
+    
     func getCurrentLocation() -> Location? {
         var curLoc : Location? = nil
         for i in  0...locations.count-1 {
@@ -53,14 +55,18 @@ class Case {
     }
     
     func canDiscoverLocation(location : Location) -> Bool{
+        if (location.found) {
+            return false
+        }
         if location === locations.first {
             return true
         }
-        let loc = getCurrentLocation()
+        let loc = curLoc != nil ? curLoc! : getCurrentLocation()
         return (loc?.found)! && (loc?.unlocks)!.contains(location.id)
     }
     
     func discoveredLocation(location : Location) {
+        curLoc = location
         let newE = location.evidence
         let newH = location.hints
         let newS = location.suspects

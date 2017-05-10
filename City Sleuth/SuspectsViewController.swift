@@ -14,6 +14,8 @@ class SuspectsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var suspects = [Suspect]()
     
+    var selectedSuspect : Suspect?
+    
     @IBOutlet weak var suspectsTable: UITableView!
     
     override func viewDidLoad() {
@@ -47,6 +49,23 @@ class SuspectsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.textLabel?.text = "Locked"
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath){
+        
+        self.selectedSuspect = suspects[indexPath.row]
+        if (selectedSuspect?.discovered)! {
+            performSegue(withIdentifier: "toProfile", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as? SuspectProfileViewController
+        destVC?.curSuspect = selectedSuspect
+    }
+    
+    @IBAction func unwindToSuspects(segue: UIStoryboardSegue) {
     }
     
     override func didReceiveMemoryWarning() {

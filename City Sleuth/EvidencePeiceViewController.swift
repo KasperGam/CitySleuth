@@ -51,10 +51,8 @@ class EvidencePeiceViewController: UIViewController {
             textView.isUserInteractionEnabled = false
         }
         
-        let filepath = "/Users/kasper/Desktop/ITU/Locative Media/DetectiveMystery/city sleuth/City Sleuth/City Sleuth/test.m4a"
-        
         if (curEvidence?.type == Evidence.TYPE_AUDIO) {
-            let url = URL(fileURLWithPath: filepath)
+            let url = URL(fileURLWithPath: Bundle.main.path(forResource: curEvidence?.filename, ofType: "mp3")!)
             audioPlayer.songURL = url
             audioPlayer.setupPlayer()
         } else {

@@ -17,6 +17,8 @@
 		A7036EF31EC0A32100DD27EF /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EF21EC0A32100DD27EF /* Case.swift */; };
 		A7036EF51EC0B8F100DD27EF /* AudioPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7036EF41EC0B8F100DD27EF /* AudioPlayerView.xib */; };
 		A7036EF71EC0B90400DD27EF /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EF61EC0B90400DD27EF /* AudioPlayerView.swift */; };
+		A74141421EC26765002B6129 /* markTestimony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A74141411EC26765002B6129 /* markTestimony.mp3 */; };
+		A74141441EC2885E002B6129 /* SuspectProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74141431EC2885E002B6129 /* SuspectProfileViewController.swift */; };
 		A78184381EBDE4600045AFA0 /* CaseBriefingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78184371EBDE4600045AFA0 /* CaseBriefingViewController.swift */; };
 		A781843A1EBDE57B0045AFA0 /* Suspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78184391EBDE57B0045AFA0 /* Suspect.swift */; };
 		A78184421EBE0A4D0045AFA0 /* casedata.json in Resources */ = {isa = PBXBuildFile; fileRef = A78184411EBE0A4D0045AFA0 /* casedata.json */; };
@@ -46,7 +48,8 @@
 		A7036EF21EC0A32100DD27EF /* Case.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 		A7036EF41EC0B8F100DD27EF /* AudioPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerView.xib; sourceTree = "<group>"; };
 		A7036EF61EC0B90400DD27EF /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
-		A7036EFB1EC0C63100DD27EF /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
+		A74141411EC26765002B6129 /* markTestimony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = markTestimony.mp3; sourceTree = "<group>"; };
+		A74141431EC2885E002B6129 /* SuspectProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectProfileViewController.swift; sourceTree = "<group>"; };
 		A78184371EBDE4600045AFA0 /* CaseBriefingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseBriefingViewController.swift; sourceTree = "<group>"; };
 		A78184391EBDE57B0045AFA0 /* Suspect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Suspect.swift; sourceTree = "<group>"; };
 		A78184411EBE0A4D0045AFA0 /* casedata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = casedata.json; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 				A7036EE81EC0687E00DD27EF /* HintsViewController.swift */,
 				A7036EEA1EC0689900DD27EF /* LocationsViewController.swift */,
 				A7036EEC1EC06E6100DD27EF /* EvidencePeiceViewController.swift */,
+				A74141431EC2885E002B6129 /* SuspectProfileViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -149,7 +153,7 @@
 		A7E345381EBCB3C5008A9A4E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				A7036EFB1EC0C63100DD27EF /* test.m4a */,
+				A74141411EC26765002B6129 /* markTestimony.mp3 */,
 				A7E345231EBCA392008A9A4E /* City_Sleuth.xcdatamodeld */,
 				A7E345391EBCB946008A9A4E /* Cases.swift */,
 				A78184391EBDE57B0045AFA0 /* Suspect.swift */,
@@ -231,6 +235,7 @@
 				A7E3452A1EBCA392008A9A4E /* LaunchScreen.storyboard in Resources */,
 				A7E345271EBCA392008A9A4E /* Assets.xcassets in Resources */,
 				A7E345221EBCA392008A9A4E /* Main.storyboard in Resources */,
+				A74141421EC26765002B6129 /* markTestimony.mp3 in Resources */,
 				A78184421EBE0A4D0045AFA0 /* casedata.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +261,7 @@
 				A78184461EBE49A00045AFA0 /* MainViewController.swift in Sources */,
 				A7036EE51EC0670600DD27EF /* SuspectsViewController.swift in Sources */,
 				A781843A1EBDE57B0045AFA0 /* Suspect.swift in Sources */,
+				A74141441EC2885E002B6129 /* SuspectProfileViewController.swift in Sources */,
 				A7036EF71EC0B90400DD27EF /* AudioPlayerView.swift in Sources */,
 				A7036EEB1EC0689900DD27EF /* LocationsViewController.swift in Sources */,
 				A7036EED1EC06E6100DD27EF /* EvidencePeiceViewController.swift in Sources */,
