@@ -23,12 +23,11 @@ class LocationAnnotation : NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return !location.found ? location.startText : location.afterText
+        return location.found ? location.afterText : location.startText
     }
     
     var title: String? {
         return location.name
     }
-    
 
 }

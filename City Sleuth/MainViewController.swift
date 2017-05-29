@@ -30,7 +30,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @IBOutlet weak var tipLabel: UILabel!
     
+    @IBOutlet weak var takeQuiz: UIButton!
+    
     var tap = UITapGestureRecognizer(target: nil, action: #selector(hideTipView))
+    
+    var quizView : UIView?
     
     var userLocaiton : CLLocationCoordinate2D?
     
@@ -54,6 +58,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         
         startAtLabel.text = "Starting Point"
         
+        takeQuiz.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        takeQuiz.layer.borderColor = UIColor.white.cgColor
+        takeQuiz.layer.borderWidth = 1
+        takeQuiz.layer.cornerRadius = 5
+        
+        takeQuiz.isHidden = true
+        takeQuiz.isUserInteractionEnabled = false
+        
         if (CLLocationManager.locationServicesEnabled()) {
             startUpdates()
         }
@@ -65,6 +77,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         mapView.showsUserLocation = true
         let startAnn = LocationAnnotation(location: (curCase?.locations.first!)!)
         mapView.addAnnotation(startAnn)
+        
+        if curCase?.curLoc != nil {
+            if (mapView != nil) {
+                mapView.removeFromSuperview()
+            }
+            currentLoc = curCase?.curLoc
+            showObjective(objective: (currentLoc?.objective)!)
+            backgroundImage.image = UIImage(named: (currentLoc?.backgroundImg)!)
+            startAtLabel.text = (currentLoc?.name)!
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -104,39 +126,76 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
                         backgroundImage.image = UIImage(named: l.backgroundImg)
                         self.currentLoc = l
                         self.startAtLabel.text = l.name
-                        self.audioPlayer.isHidden = false
-                        self.audioPlayer.setEnabled(enabled: true)
+                        self.descriptionText.isHidden = true
                         
-                        let url = URL(fileURLWithPath: Bundle.main.path(forResource: l.audioFile, ofType: "mp3")!)
-                        self.audioPlayer.songURL = url
-                        self.audioPlayer.setupPlayer()
-                        self.audioPlayer.startPlaying()
+                        if l.audioFile != "" && l.quiz == nil {
+                            startAudio(file: l.audioFile)
+                        } else if l.quiz != nil {
+                            self.provideQuiz(quiz: l.quiz!)
+                        } else {
+                            afterAudio()
+                        }
                     }
                 }
             }
         }
     }
     
+    func startAudio (file : String) {
+        audioPlayer.isHidden = false
+        audioPlayer.setEnabled(enabled: true)
+        
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: file, ofType: "mp3")!)
+        self.audioPlayer.songURL = url
+        self.audioPlayer.setupPlayer()
+        self.audioPlayer.startPlaying()
+
+    }
+    
     func afterAudio () {
         self.audioPlayer.setEnabled(enabled: false)
         self.audioPlayer.isHidden = true
         
-        _ = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { (Timer) -> () in
-                self.tipView.isUserInteractionEnabled = true
-                self.tipLabel.text = (self.currentLoc?.tip)!
-                self.tipView.isHidden = false
+        _ = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false, block: { (Timer) -> () in
+                if (self.currentLoc?.tip != "") {
+                    self.tipView.isUserInteractionEnabled = true
+                    self.tipLabel.text = (self.currentLoc?.tip)!
+                    self.tipView.isHidden = false
+                    self.backgroundImage.addGestureRecognizer(self.tap)
+                    self.view.addGestureRecognizer(self.tap)
+
+                }
             
-                self.descriptionText.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-                self.descriptionText.layer.borderWidth = 1
-                self.descriptionText.layer.borderColor = UIColor.white.cgColor
-                self.descriptionText.layer.cornerRadius = 5
-                let str = NSMutableAttributedString(string: " OBJECTIVE: " + (self.currentLoc?.objective)!)
-                str.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location: 1, length: 10))
-                str.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 16), range: NSRange(location: 1, length: 10))
-                self.descriptionText.attributedText = str
-                self.backgroundImage.addGestureRecognizer(self.tap)
-                self.view.addGestureRecognizer(self.tap)
-            })
+                self.showObjective(objective: (self.currentLoc?.objective)!)
+        })
+    }
+    
+    func provideQuiz(quiz : Quiz) {
+        takeQuiz.isHidden = false
+        takeQuiz.isUserInteractionEnabled = true
+        quizView = UIView(frame: backgroundImage.frame)
+        quizView?.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        self.view.addSubview(quizView!)
+        self.view.bringSubview(toFront: takeQuiz)
+    }
+    
+    @IBAction func pressedToQuiz(_ sender: Any) {
+        if currentLoc?.quiz != nil {
+            self.performSegue(withIdentifier: "toQuiz", sender: self)
+        }
+    }
+    
+    func showObjective(objective : String) {
+        self.descriptionText.isHidden = false
+        self.descriptionText.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.descriptionText.layer.borderWidth = 1
+        self.descriptionText.layer.borderColor = UIColor.white.cgColor
+        self.descriptionText.layer.cornerRadius = 5
+        let str = NSMutableAttributedString(string: " OBJECTIVE: " + objective)
+        str.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location: 1, length: 10))
+        str.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 16), range: NSRange(location: 1, length: 10))
+        self.descriptionText.attributedText = str
+
     }
     
     func hideTipView() {
@@ -148,6 +207,21 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     @IBAction func unwindToMainGame(segue: UIStoryboardSegue) {
+        if segue.identifier == "quizToMain" {
+            let sourceVC = segue.source as! QuizViewController
+            if sourceVC.curQuestionNum >= (curCase?.curQuiz?.questions.count)! {
+                if quizView != nil {
+                    quizView?.removeFromSuperview()
+                }
+                takeQuiz.isHidden = true
+                takeQuiz.isUserInteractionEnabled = false
+                if currentLoc?.audioFile != "" {
+                    startAudio(file: (currentLoc?.audioFile)!)
+                } else {
+                    afterAudio()
+                }
+            }
+        }
     }
     
     func updateMapWithLocation(location : CLLocation) {
@@ -176,6 +250,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         } else if segue.identifier == "toHints" {
             let destVC = segue.destination as? HintsViewController
+            if destVC != nil {
+                destVC?.curCase = curCase
+            }
+        } else if segue.identifier == "toQuiz" {
+            let destVC = segue.destination as? QuizViewController
             if destVC != nil {
                 destVC?.curCase = curCase
             }

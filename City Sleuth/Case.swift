@@ -26,7 +26,7 @@ class Case {
     
     var crime : String
     
-    var introplot: String
+    var briefingImage : String
     
     var startplace: String
     
@@ -40,7 +40,11 @@ class Case {
     
     var curHint = ""
     
+    var quizes : Array<Quiz>
+    
     var curLoc : Location?
+    
+    var curQuiz : Quiz?
     
     func getCurrentLocation() -> Location? {
         var curLoc : Location? = nil
@@ -67,6 +71,7 @@ class Case {
     
     func discoveredLocation(location : Location) {
         curLoc = location
+        location.found = true
         let newE = location.evidence
         let newH = location.hints
         let newS = location.suspects
@@ -89,9 +94,11 @@ class Case {
             }
         }
         
+        curQuiz = curLoc?.quiz
+        
     }
     
-    init(caseName: String, caseID: Int, imgName: String, suspects: Array<Suspect>, date: String, victim: String, crime: String, introMessage: String, startName: String, location: String, locations : Array<Location>, evidence : Array<Evidence>, hints: Array<Hint>) {
+    init(caseName: String, caseID: Int, imgName: String, suspects: Array<Suspect>, date: String, victim: String, crime: String, briefImage: String, startName: String, location: String, locations : Array<Location>, evidence : Array<Evidence>, hints: Array<Hint>, quizes : Array<Quiz>) {
         name = caseName
         ID = caseID
         imageName = imgName
@@ -99,12 +106,13 @@ class Case {
         self.victim = victim
         self.crime = crime
         self.date = date
-        introplot = introMessage
+        self.briefingImage = briefImage
         startplace = startName
         self.location = location
         self.locations = locations
         self.evidence = evidence
         self.hints = hints
+        self.quizes = quizes
     }
     
 }

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         startButton.layer.borderWidth = 2
         startButton.layer.borderColor = UIColor.white.cgColor
         
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
         howtoplayButton.layer.borderWidth = 2
         howtoplayButton.layer.borderColor = UIColor.white.cgColor
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

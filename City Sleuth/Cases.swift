@@ -32,7 +32,7 @@ class Cases {
             let date = item["date"].string!
             let crime = item["crime"].string!
             let victim = item["victim"].string!
-            let introplot = item["introplot"].string!
+            let briefImg = item["briefingImage"].string!
             let startplace = item["startName"].string!
             let location = item["location"].string!
             var suspects = [Suspect]()
@@ -48,6 +48,21 @@ class Cases {
                 let stestimony = sitem["testimony"].string!
                 suspects.append(Suspect(sName: sname, sAge: sage, sID: sid, sOcc: soccupation, sAlibi: salibi, sTestimony: stestimony, sRelation: srelationship, sSex: ssex, sImage: simage))
             }
+            
+            var quizes = [Quiz]()
+            for(qitem) in item["quizes"].array! {
+                
+                let qid = qitem["id"].int!
+                var qqestions = [Question]()
+                for(qqitem) in qitem["questions"].array! {
+                    let qqoptions = qqitem["options"].arrayObject!
+                    let qqquestion = qqitem["question"].string!
+                    let qqanswer = qqitem["answer"].string!
+                    qqestions.append(Question(options: qqoptions as! Array<String>, answer: qqanswer, question: qqquestion))
+                }
+                quizes.append(Quiz(id: qid, questions: qqestions))
+            }
+            
             var locations = [Location]()
             for(litem) in item["locations"].array! {
                 let lname = litem["name"].string!
@@ -65,7 +80,18 @@ class Cases {
                 let laudio = litem["audioFile"].string!
                 let ltip = litem["afterTip"].string!
                 let lobjective = litem["afterObjective"].string!
+                let lquiz = litem["quiz"].int!
+                
                 locations.append(Location(name: lname, address: laddress, id: lid, latitude: llat, longitude: llong, startTxt: lstart, aftText: lafter, unlocks: lunlocks as! Array<Int>, suspects: lsuspects as! Array<Int>, evidence: levidence as! Array<Int>, background: lbackground, hints: lhints as! Array<Int>, audioFile : laudio, tip : ltip, objective : lobjective))
+                
+                if lquiz >= 0 {
+                    for q in quizes {
+                        if q.id == lquiz {
+                            locations.last?.quiz = q
+                            break
+                        }
+                    }
+                }
             }
             
             var evidence = [Evidence]()
@@ -89,7 +115,7 @@ class Cases {
                 hints.append(Hint(id: hid, hint: hhint))
             }
 
-            ALL_CASES.append(Case(caseName: name, caseID: id, imgName: image, suspects: suspects, date: date, victim: victim, crime: crime, introMessage: introplot, startName: startplace, location: location, locations: locations, evidence: evidence, hints: hints))
+            ALL_CASES.append(Case(caseName: name, caseID: id, imgName: image, suspects: suspects, date: date, victim: victim, crime: crime, briefImage: briefImg, startName: startplace, location: location, locations: locations, evidence: evidence, hints: hints, quizes: quizes))
         }
         
         currentCase = ALL_CASES[0]

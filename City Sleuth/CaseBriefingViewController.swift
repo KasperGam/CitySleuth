@@ -12,10 +12,11 @@ class CaseBriefingViewController: UIViewController {
 
     var curCase: Case?
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var briefingView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        briefingView.image = UIImage(named: (curCase?.briefingImage)!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

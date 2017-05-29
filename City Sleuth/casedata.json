@@ -6,13 +6,53 @@
   "startName" : "The Courthouse",
   "location" : "Denmark, Copenhagen",
   "crime": "Murder, 1st Degree",
-  "victim": "Line Lastname",
-  "introplot": "You should start your investigation at the Courthouse at Nytorv 25, 1450 København K. We have brought a Mark Strollen in for questioning. He was the one who alerted police and supposedly found the body this morning. Our experts have found that she was actually murdered late on Friday night.",
+  "victim": "Line Neilson",
+  "briefingImage": "introCoffeeLoveMurder",
   "hints" : [{
              "id" : 0,
              "hint" : "Mark mentioned a coffee shop in his testimony. Maybe you should start there."
-             }
+             },
+             {
+             "id" : 1,
+             "hint" : "Where would Line go most Fridays? What about Mark?"
+             },
+             {
+             "id" : 2,
+             "hint" : "It sounds like Kristine and Carle may have more information.  Kristine could be at 7/11.  Carle was Line’s neighbor, you might find him at home.  Talking to one of them might give some insights."
+             },
+             {
+             "id" : 3,
+             "hint" : "Carle lives across from Line's apartment. Check your briefing for her address."
+             },
+             {
+             "id" : 4,
+             "hint" : "You need access to that Tumblr account!"
+             },
+             {
+             "id" : 5,
+             "hint" : "Carle brought up an interesting point about Kristine. Maybe you should look for her at 7/11 and ask some more questions?"
+             },
              ],
+  "quizes" : [{
+              "id" : 0,
+              "questions" : [{
+                             "question" : "What year was Thomas Sandwiches founded?",
+                             "options" : ["1915", "2000", "1990"],
+                             "answer" : "1993"
+                             },
+                             {
+                             "question" : "Bottles of ________ are located behind the counter of Thomas Sandwiches?",
+                             "options" : ["ketchup", "hot sauce", "vinegar"],
+                             "answer" : "olive oil"
+                             },
+                             {
+                             "question" : "What is to your left as you enter the café?",
+                             "options" : ["A picture", "Bags of flour", "The counter"],
+                             "answer" : "A mirror"
+                             }
+                             ]
+               }
+               ],
   "evidence" : [{
                 "name" : "Briefing",
                 "id" : -1,
@@ -25,7 +65,7 @@
                 "name" : "Coffee House footage",
                 "id" : 0,
                 "description" : "Footage you found while investigating the coffee house. The video seems stuck, but the audio is working.",
-                "filename" : "example.wav",
+                "filename" : "coffeeShop",
                 "type" : "audio",
                 "discoveredAt" : "Coffee House"
                },
@@ -33,7 +73,7 @@
                 "name" : "Bartender's Testimony",
                 "id" : 1,
                 "description" : "Testimony from the bartender at the bar Mark was drinking at the night Line was murdered.",
-                "filename" : "example.txt",
+                "filename" : "Yeah, Mark came in here quite a bit, at least every Friday.  He was here the 14th, I’m sure.  His team was playing, and he and a few friends were watching it here.  I know he was rough around the edges, but he was always a pretty good guy, at least he was here.  Definitely a drinker, but never gave me too much trouble.\n\nIt’s a shame about his girl, but I can’t imagine Mark could’ve done it.  When I say he was only gone for ten minutes that night, I mean he was only gone for ten minutes.  He left at 11.30.  I have to take heart medication, and have an alarm set on my phone for then.  When I stepped out back on a break to take it, I saw Mark leaving the bar.  My break only lasts 10 minutes, and he was back around the time I went back inside.  He’d mentioned earlier he’d forgotten his wallet, and since Line lived close by, I assumed that’s where he’d left it. He definitely had it when he got back; I can show you the receipts for his credit card. His mood didn’t seem any different when he came back.  He left at closing, which is around 2, with a few of his buddies.  He was pretty sloshed.  I know he got into some trouble in the past, but he loved Line.\n\nShe was a sweetie, I don’t know who’d want to hurt her.  She’d come in here with Mark occasionally. Always had a smile on. She hung out with that bitch Kristine, but that was only thing I could say was a “fault.”  (chuckles) The only time I ever had trouble with Mark, here, would be when Kristine or that weird neighbor, Carle, showed up. She’d come in, never when Line was here I don’t think, and just start yelling at Mark, who would always yell back. I unofficially banned her from coming in here, but I’d occasionally catch her smoking outside, probably waiting for Mark to leave. She always used the excuse that she was just out buying cigarettes from the 7/11 near here.  I mean, I do see her at the 7/11 a lot, but I think she had it in for Mark.\n\nCarle was more annoying than anything else.  He’d try to casually sneak into the bar and Mark would always tell him off. I never really asked about it. I didn’t want to get more involved.\n\nI really hope you catch who did this.  And I really hope it wasn’t Mark.",
                 "type" : "text",
                 "discoveredAt" : "Bar"
                 },
@@ -41,15 +81,15 @@
                 "name" : "Tumblr Account",
                 "id" : 2,
                 "description" : "Strange private tumblr account, used to harass Line",
-                "filename" : "https://www.tumblr.com/login",
+                "filename" : "https://iwalktheline27.tumblr.com/",
                 "type" : "web",
                 "discoveredAt" : "7/11 Kiosk"
                 },
                 {
-                "name" : "Tumblr Password",
+                "name" : "Line's cat",
                 "id" : 3,
-                "description" : "Carle believes this might be the password to something.",
-                "filename" : "*misty0144*",
+                "description" : "Carle mentioned Line having a cat named Sprinkles. Maybe its a clue?",
+                "filename" : "Line's cat's name is Sprinkles.",
                 "type" : "text",
                 "discoveredAt" : "Carle's Appartment"
                 },
@@ -75,6 +115,7 @@
                  "suspects" : [0],
                  "evidence" : [4],
                  "hints" : [0],
+                 "quiz" : -1,
                  "audioFile" : "markTestimony",
                  "afterTip" : "Mark's testimony is unlocked. You can find it in My Evidence.",
                  "afterObjective" : "Look for leads about Kristine and Line's neighbor."
@@ -89,10 +130,11 @@
                  "startText" : "",
                  "afterText" : "The coffee house where Line works.",
                  "unlockLocations" : [2, 3],
-                 "suspects" : [1],
+                 "suspects" : [2],
                  "evidence" : [0],
-                 "hints" : [],
-                 "audioFile" : "jensKristine",
+                 "hints" : [1],
+                 "quiz" : 0,
+                 "audioFile" : "coffeeShop",
                  "afterTip" : "You now have Jens' suspect file. Find it in Suspects.",
                  "afterObjective" : "Verify Mark's testimony"
               },
@@ -105,11 +147,12 @@
                  "longitude" : 12.574644,
                  "startText" : "",
                  "afterText" : "The museum Kristine went to. Nothing was here.",
-                 "unlockLocations" : [],
+                 "unlockLocations" : [3],
                  "suspects" : [],
                  "evidence" : [],
                  "hints" : [],
-                 "audioFile" : "foundNothing",
+                 "quiz" : -1,
+                 "audioFile" : "",
                  "afterTip" : "You didn't find anything here. Try somewhere else!",
                  "afterObjective" : "Verify Mark's testimony"
               },
@@ -125,9 +168,10 @@
                  "unlockLocations" : [4, 5],
                  "suspects" : [],
                  "evidence" : [1],
-                 "hints" : [],
-                 "audioFile" : "bartenderTestimony",
-                 "afterTip" : "",
+                 "hints" : [2],
+                 "quiz" : -1,
+                 "audioFile" : "bar",
+                 "afterTip" : "Police have found nothing at the Museum mentioned at the cafe.",
                  "afterObjective" : "Investigate Carle and Kristine"
                  },
                  {
@@ -140,12 +184,13 @@
                  "startText" : "",
                  "afterText" : "Where you bumped into Kristine buying cigarettes.",
                  "unlockLocations" : [5],
-                 "suspects" : [2],
+                 "suspects" : [1],
                  "evidence" : [2],
-                 "hints" : [],
+                 "hints" : [3, 4],
+                 "quiz" : -1,
                  "audioFile" : "kristineTestimony",
                  "afterTip" : "",
-                 "afterObjective" : "Investigate Carle"
+                 "afterObjective" : "Look for Carle's apartment on Teglgårdstræde."
                  },
                  {
                  "name" : "Carle's Apartment",
@@ -159,7 +204,8 @@
                  "unlockLocations" : [4],
                  "suspects" : [3],
                  "evidence" : [3],
-                 "hints" : [],
+                 "hints" : [5, 4],
+                 "quiz" : -1,
                  "audioFile" : "carleTestimony",
                  "afterTip" : "",
                  "afterObjective" : "Investigate Kristine"
@@ -185,7 +231,7 @@
                "occupation": "Barista",
                "relationship": "Best Friend / Coworker",
                "alibi": "At home watching Netflix",
-               "testimony": "Mark and I argued, sure.  He was literally scum and treated Line like shit.  I am, was, (pauses) her best friend, and thought she deserved the world.  And Mark definitely wasn’t the world.  I always told her she was way out of his league, but I she just had a thing for bad boys. I mean, every guy she’s dated has been in some sort of trouble.  Mark was just more long-term than the previous ones.  And I mean, she had choices.  It wasn’t just petty criminals or creepers like that neighbor.  Everyone liked Line. \nI can’t believe there’s even a doubt that Mark did it. I mean, he was in her apartment on the night of the murder around the time of death!\nGod, I knew something was going to happen.  I mean, Mark had gotten so overprotective as of late, making her check in with him when she went places alone.  Not that I blame him completely.  Line had recently started getting some weird messages."
+               "testimony": "Mark and I argued, sure.  He was literally scum and treated Line like shit.  I am, was, (pauses) her best friend, and thought she deserved the world.  And Mark definitely wasn’t the world.  I always told her she was way out of his league, but I think she just had a thing for bad boys. I mean, every guy she’s dated has been in some sort of trouble.  Mark was just more long-term than the previous ones.  And I mean, she had choices.  It wasn’t just petty criminals or creepers like Carle, you know, her neighbor?  Everyone liked Line.\n\nI can’t believe there’s even a doubt that Mark did it. I mean, he was in her apartment on the night of the murder around the time she (stops, she’s a little choked up) died!\n\nGod, I knew something was going to happen.  I mean, Mark had gotten so overprotective as of late, making her check in with him when she went places alone.  Not that I blame him completely, with the messages Line had started getting.  The police didn’t seem that concerned with them, but they freaked me the hell out.  I can send you the screenshots I took if you want.I think it was probably Carle. I would’ve already confronted him about it, but with everything that’s been going on I just haven’t had the energy.  You’re welcome to talk to him about it.  He lives in the brick building across from Line’s apartment. Above some wine shop.\n\nMy key to Line’s apartment went missing around the same time of the messages as well.  I looked everywhere for it. Line had scheduled an appointment to get the locks changed… it was, um, supposed to be next week.  I actually found the key this morning, outside the cafe. I could’ve sworn I looked there when I’d initially lost it."
                },
                {
                "name": "Jens Brohler",
@@ -196,7 +242,7 @@
                "occupation": "Coffee Shop Owner",
                "relationship": "Boss",
                "alibi": "At concert",
-               "testimony": "I have known the victim for several years, ever since she started working for me four years ago. She is a good employee, always thorough, good with customers, and a delight to have in the shop. On the night in question (Friday, April 14, 2017), we were the last two finishing up for the night and getting ready for the weekend. I was going to a concert later that night, but told her to go ahead as she had put in a good day’s work and the concert was close to the shop. She left around 8:45 pm and I closed up and left shortly after, around 9:00 pm. I then attended the concert, and took pictures that I uploaded to my tumblr page when there. After the concert ended, around 2:00 am, I headed home, arriving there around 2:30 am. I did not hear what happened until I opened the shop at our saturday opening of 12:00 pm and the victim and her best friend did not come in for their shifts. I called, and upon hearing what happened, was appalled and understood Kristine’s grief. It is a tragedy. She had heard from Mark, who I have never liked. If he ended up doing this I will never forgive him. He didn’t deserve her."
+               "testimony": ""
                },
                {
                "name": "Carle Nisine",
@@ -204,10 +250,10 @@
                "id" : 3,
                "image" : "carle",
                "sex": "Male",
-               "occupation": "Web moderator and developer",
+               "occupation": "Web developer",
                "relationship": "Neighbor",
                "alibi": "At home, on the internet",
-               "testimony": "The victim has been my neighbor for several years. We have only talked face to face twice, and she was always very nice. On the night in question (Friday, April 14, 2017), I was at home, not up to much. I spend a lot of free time online, as I am not the most social person. However, I would never do anything like this. I admit to having romantic affections towards the victim, but I am a pacifist and would never hurt anyone. She was a great neighbor and I hope you find whoever did this! I never really trusted that boyfriend of hers, he seemed to have a hot head and I know the police have been to that apartment before."
+               "testimony": "Mark’s been talking about me? Of course he is, he thinks by yelling about everyone else the police will forget that he’s guilty.  It’s just sad.\n\nI’ll tell you what I told the police. I liked Line. She was a beautiful, interesting woman.  Maybe I was a little jealous of Mark, but I would never hurt Line because of that.  I know about the restraining order she tried to file.  I guess I crossed some lines, I don’t know, I just wanted to be around her. I never threatened her or anything. I can’t believe anyone, the police or Mark or whoever, would even suggest that.  They might as well be questioning Kristine, you know, she doesn’t have an alibi at all for the night of the murder.\n\nThe night of Line’s murder, I was here at home alone for most of the night. Line’s lights were on around 10.30.  I took a shower a little after that and when I got out, around 11 ish, the lights were out.  I saw a man leaving the building, but it was too dark to really make out many details.  I think it was probably Mark, but I guess it might’ve been someone else.\n\nI miss Line.  She was always so friendly.  I’m looking after her cat, Sprinkles, now.  I guess Kristine is allergic.  She’s a sweet cat, but I can’t look at her without reminding myself of Line."
                }
                ]
   }]

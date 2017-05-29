@@ -35,12 +35,10 @@ class LocationsViewController: UIViewController, CLLocationManagerDelegate, MKMa
         mapView.showsUserLocation = true
         
         for l in (curCase?.locations)! {
-            if l.found {
+            if l.found || curCase?.locations.first === l{
                 mapView.addAnnotation(LocationAnnotation(location: l))
             }
         }
-        let startAnn = LocationAnnotation(location: (curCase?.locations.first!)!)
-        mapView.addAnnotation(startAnn)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

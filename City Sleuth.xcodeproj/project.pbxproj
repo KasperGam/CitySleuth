@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70032A51EC9F3B100DC419C /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70032A41EC9F3B100DC419C /* Quiz.swift */; };
 		A7036EE51EC0670600DD27EF /* SuspectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EE41EC0670600DD27EF /* SuspectsViewController.swift */; };
 		A7036EE71EC0681B00DD27EF /* EvidenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EE61EC0681B00DD27EF /* EvidenceViewController.swift */; };
 		A7036EE91EC0687E00DD27EF /* HintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EE81EC0687E00DD27EF /* HintsViewController.swift */; };
@@ -35,9 +36,15 @@
 		A7E345331EBCA3AB008A9A4E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E345321EBCA3AB008A9A4E /* MapKit.framework */; };
 		A7E345351EBCAE93008A9A4E /* CaseChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E345341EBCAE93008A9A4E /* CaseChooserViewController.swift */; };
 		A7E3453A1EBCB946008A9A4E /* Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E345391EBCB946008A9A4E /* Cases.swift */; };
+		A7F2809A1ECFA20700C659DE /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F280991ECFA20700C659DE /* QuizViewController.swift */; };
+		A7F2809C1ECFC03900C659DE /* coffeeShop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7F2809B1ECFC03900C659DE /* coffeeShop.mp3 */; };
+		A7F2809E1ECFC07100C659DE /* bar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7F2809D1ECFC07100C659DE /* bar.mp3 */; };
+		A7F280A01ECFC0A400C659DE /* kristineTestimony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7F2809F1ECFC0A400C659DE /* kristineTestimony.mp3 */; };
+		A7F280A21ECFC0C800C659DE /* carleTestimony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7F280A11ECFC0C800C659DE /* carleTestimony.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A70032A41EC9F3B100DC419C /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		A7036EE41EC0670600DD27EF /* SuspectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectsViewController.swift; sourceTree = "<group>"; };
 		A7036EE61EC0681B00DD27EF /* EvidenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvidenceViewController.swift; sourceTree = "<group>"; };
 		A7036EE81EC0687E00DD27EF /* HintsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintsViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +75,11 @@
 		A7E345321EBCA3AB008A9A4E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A7E345341EBCAE93008A9A4E /* CaseChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseChooserViewController.swift; sourceTree = "<group>"; };
 		A7E345391EBCB946008A9A4E /* Cases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cases.swift; sourceTree = "<group>"; };
+		A7F280991ECFA20700C659DE /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		A7F2809B1ECFC03900C659DE /* coffeeShop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coffeeShop.mp3; sourceTree = "<group>"; };
+		A7F2809D1ECFC07100C659DE /* bar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bar.mp3; sourceTree = "<group>"; };
+		A7F2809F1ECFC0A400C659DE /* kristineTestimony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kristineTestimony.mp3; sourceTree = "<group>"; };
+		A7F280A11ECFC0C800C659DE /* carleTestimony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = carleTestimony.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +138,6 @@
 				A7E345201EBCA392008A9A4E /* Main.storyboard */,
 				A7E345261EBCA392008A9A4E /* Assets.xcassets */,
 				A7E345281EBCA392008A9A4E /* LaunchScreen.storyboard */,
-				A7A604041EBFD9A400CACE2B /* LocationAnnotation.swift */,
 				A7036EF41EC0B8F100DD27EF /* AudioPlayerView.xib */,
 				A7036EF61EC0B90400DD27EF /* AudioPlayerView.swift */,
 			);
@@ -136,6 +147,7 @@
 		A7E345371EBCB3C0008A9A4E /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				A7A604041EBFD9A400CACE2B /* LocationAnnotation.swift */,
 				A7E3451E1EBCA392008A9A4E /* ViewController.swift */,
 				A7E345341EBCAE93008A9A4E /* CaseChooserViewController.swift */,
 				A78184371EBDE4600045AFA0 /* CaseBriefingViewController.swift */,
@@ -146,6 +158,7 @@
 				A7036EEA1EC0689900DD27EF /* LocationsViewController.swift */,
 				A7036EEC1EC06E6100DD27EF /* EvidencePeiceViewController.swift */,
 				A74141431EC2885E002B6129 /* SuspectProfileViewController.swift */,
+				A7F280991ECFA20700C659DE /* QuizViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -154,6 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				A74141411EC26765002B6129 /* markTestimony.mp3 */,
+				A7F2809B1ECFC03900C659DE /* coffeeShop.mp3 */,
+				A7F2809D1ECFC07100C659DE /* bar.mp3 */,
+				A7F2809F1ECFC0A400C659DE /* kristineTestimony.mp3 */,
+				A7F280A11ECFC0C800C659DE /* carleTestimony.mp3 */,
 				A7E345231EBCA392008A9A4E /* City_Sleuth.xcdatamodeld */,
 				A7E345391EBCB946008A9A4E /* Cases.swift */,
 				A78184391EBDE57B0045AFA0 /* Suspect.swift */,
@@ -162,6 +179,7 @@
 				A7036EEE1EC0734300DD27EF /* Evidence.swift */,
 				A7036EF01EC0A2D100DD27EF /* Hint.swift */,
 				A7036EF21EC0A32100DD27EF /* Case.swift */,
+				A70032A41EC9F3B100DC419C /* Quiz.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -232,11 +250,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7036EF51EC0B8F100DD27EF /* AudioPlayerView.xib in Resources */,
+				A7F2809C1ECFC03900C659DE /* coffeeShop.mp3 in Resources */,
+				A7F2809E1ECFC07100C659DE /* bar.mp3 in Resources */,
 				A7E3452A1EBCA392008A9A4E /* LaunchScreen.storyboard in Resources */,
 				A7E345271EBCA392008A9A4E /* Assets.xcassets in Resources */,
 				A7E345221EBCA392008A9A4E /* Main.storyboard in Resources */,
+				A7F280A01ECFC0A400C659DE /* kristineTestimony.mp3 in Resources */,
 				A74141421EC26765002B6129 /* markTestimony.mp3 in Resources */,
 				A78184421EBE0A4D0045AFA0 /* casedata.json in Resources */,
+				A7F280A21ECFC0C800C659DE /* carleTestimony.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +287,9 @@
 				A7036EF71EC0B90400DD27EF /* AudioPlayerView.swift in Sources */,
 				A7036EEB1EC0689900DD27EF /* LocationsViewController.swift in Sources */,
 				A7036EED1EC06E6100DD27EF /* EvidencePeiceViewController.swift in Sources */,
+				A70032A51EC9F3B100DC419C /* Quiz.swift in Sources */,
 				A7A604051EBFD9A400CACE2B /* LocationAnnotation.swift in Sources */,
+				A7F2809A1ECFA20700C659DE /* QuizViewController.swift in Sources */,
 				A7E345251EBCA392008A9A4E /* City_Sleuth.xcdatamodeld in Sources */,
 				A7036EE71EC0681B00DD27EF /* EvidenceViewController.swift in Sources */,
 			);

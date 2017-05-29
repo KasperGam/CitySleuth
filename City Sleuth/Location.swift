@@ -40,6 +40,8 @@ class Location {
     
     var objective : String
     
+    var quiz : Quiz?
+    
     var found = false
     
     init(name: String, address : String, id: Int, latitude : Double, longitude: Double, startTxt : String, aftText : String, unlocks: Array<Int>, suspects: Array<Int>, evidence : Array<Int>, background : String, hints: Array<Int>, audioFile : String, tip : String, objective : String) {
