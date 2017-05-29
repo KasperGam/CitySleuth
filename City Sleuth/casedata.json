@@ -175,9 +175,9 @@
                  "afterObjective" : "Investigate Carle and Kristine"
                  },
                  {
-                 "name" : "7/11 Kiosk",
+                 "name" : "7-Eleven kiosk",
                  "id" : 4,
-                 "backgroundImage" : "kiosk",
+                 "backgroundImage" : "7-eleven",
                  "address" : "Frederiksberggade 2, 1459 København K, Denmark",
                  "latitude" : 55.677767,
                  "longitude" : 12.572009,

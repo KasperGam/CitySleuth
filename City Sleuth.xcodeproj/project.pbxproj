@@ -18,6 +18,12 @@
 		A7036EF31EC0A32100DD27EF /* Case.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EF21EC0A32100DD27EF /* Case.swift */; };
 		A7036EF51EC0B8F100DD27EF /* AudioPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7036EF41EC0B8F100DD27EF /* AudioPlayerView.xib */; };
 		A7036EF71EC0B90400DD27EF /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7036EF61EC0B90400DD27EF /* AudioPlayerView.swift */; };
+		A717EA851EDCE9E000DB2B94 /* 7:11.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A717EA7F1EDCE9DF00DB2B94 /* 7:11.gpx */; };
+		A717EA861EDCE9E000DB2B94 /* Apartment.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A717EA801EDCE9DF00DB2B94 /* Apartment.gpx */; };
+		A717EA871EDCE9E000DB2B94 /* Bar.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A717EA811EDCE9DF00DB2B94 /* Bar.gpx */; };
+		A717EA881EDCE9E000DB2B94 /* CoffeeShop.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A717EA821EDCE9E000DB2B94 /* CoffeeShop.gpx */; };
+		A717EA891EDCE9E000DB2B94 /* Courthouse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A717EA831EDCE9E000DB2B94 /* Courthouse.gpx */; };
+		A717EA8A1EDCE9E000DB2B94 /* Museum.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A717EA841EDCE9E000DB2B94 /* Museum.gpx */; };
 		A74141421EC26765002B6129 /* markTestimony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A74141411EC26765002B6129 /* markTestimony.mp3 */; };
 		A74141441EC2885E002B6129 /* SuspectProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74141431EC2885E002B6129 /* SuspectProfileViewController.swift */; };
 		A78184381EBDE4600045AFA0 /* CaseBriefingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78184371EBDE4600045AFA0 /* CaseBriefingViewController.swift */; };
@@ -55,6 +61,12 @@
 		A7036EF21EC0A32100DD27EF /* Case.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Case.swift; sourceTree = "<group>"; };
 		A7036EF41EC0B8F100DD27EF /* AudioPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerView.xib; sourceTree = "<group>"; };
 		A7036EF61EC0B90400DD27EF /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		A717EA7F1EDCE9DF00DB2B94 /* 7:11.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "7:11.gpx"; sourceTree = "<group>"; };
+		A717EA801EDCE9DF00DB2B94 /* Apartment.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Apartment.gpx; sourceTree = "<group>"; };
+		A717EA811EDCE9DF00DB2B94 /* Bar.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Bar.gpx; sourceTree = "<group>"; };
+		A717EA821EDCE9E000DB2B94 /* CoffeeShop.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CoffeeShop.gpx; sourceTree = "<group>"; };
+		A717EA831EDCE9E000DB2B94 /* Courthouse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Courthouse.gpx; sourceTree = "<group>"; };
+		A717EA841EDCE9E000DB2B94 /* Museum.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Museum.gpx; sourceTree = "<group>"; };
 		A74141411EC26765002B6129 /* markTestimony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = markTestimony.mp3; sourceTree = "<group>"; };
 		A74141431EC2885E002B6129 /* SuspectProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspectProfileViewController.swift; sourceTree = "<group>"; };
 		A78184371EBDE4600045AFA0 /* CaseBriefingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseBriefingViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +109,12 @@
 		A7E345101EBCA391008A9A4E = {
 			isa = PBXGroup;
 			children = (
+				A717EA7F1EDCE9DF00DB2B94 /* 7:11.gpx */,
+				A717EA801EDCE9DF00DB2B94 /* Apartment.gpx */,
+				A717EA811EDCE9DF00DB2B94 /* Bar.gpx */,
+				A717EA821EDCE9E000DB2B94 /* CoffeeShop.gpx */,
+				A717EA831EDCE9E000DB2B94 /* Courthouse.gpx */,
+				A717EA841EDCE9E000DB2B94 /* Museum.gpx */,
 				A7E3451B1EBCA392008A9A4E /* City Sleuth */,
 				A7E3451A1EBCA392008A9A4E /* Products */,
 				A7E345311EBCA3AB008A9A4E /* Frameworks */,
@@ -250,10 +268,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7036EF51EC0B8F100DD27EF /* AudioPlayerView.xib in Resources */,
+				A717EA881EDCE9E000DB2B94 /* CoffeeShop.gpx in Resources */,
 				A7F2809C1ECFC03900C659DE /* coffeeShop.mp3 in Resources */,
+				A717EA8A1EDCE9E000DB2B94 /* Museum.gpx in Resources */,
 				A7F2809E1ECFC07100C659DE /* bar.mp3 in Resources */,
+				A717EA851EDCE9E000DB2B94 /* 7:11.gpx in Resources */,
+				A717EA891EDCE9E000DB2B94 /* Courthouse.gpx in Resources */,
 				A7E3452A1EBCA392008A9A4E /* LaunchScreen.storyboard in Resources */,
+				A717EA871EDCE9E000DB2B94 /* Bar.gpx in Resources */,
 				A7E345271EBCA392008A9A4E /* Assets.xcassets in Resources */,
+				A717EA861EDCE9E000DB2B94 /* Apartment.gpx in Resources */,
 				A7E345221EBCA392008A9A4E /* Main.storyboard in Resources */,
 				A7F280A01ECFC0A400C659DE /* kristineTestimony.mp3 in Resources */,
 				A74141421EC26765002B6129 /* markTestimony.mp3 in Resources */,
