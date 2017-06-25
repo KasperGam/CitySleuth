@@ -60,6 +60,11 @@ class EvidencePeiceViewController: UIViewController {
             audioPlayer.setEnabled(enabled: false)
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(unwindToMain), name: NSNotification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: nil)
+    }
+    
+    func unwindToMain() {
+        self.performSegue(withIdentifier: "evidencePieceToMain", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

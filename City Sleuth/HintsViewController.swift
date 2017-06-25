@@ -17,7 +17,13 @@ class HintsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hintText.text = curCase?.currentHint?.hint
+        NotificationCenter.default.addObserver(self, selector: #selector(unwindToMain), name: NSNotification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: nil)
     }
+    
+    func unwindToMain() {
+        self.performSegue(withIdentifier: "hintsToMain", sender: self)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

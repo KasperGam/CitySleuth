@@ -25,6 +25,11 @@ class SuspectsViewController: UIViewController, UITableViewDelegate, UITableView
         }
         suspectsTable.delegate = self
         suspectsTable.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(unwindToMain), name: NSNotification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: nil)
+    }
+    
+    func unwindToMain() {
+        self.performSegue(withIdentifier: "suspectsToMain", sender: self)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

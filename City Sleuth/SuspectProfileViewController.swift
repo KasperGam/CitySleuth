@@ -44,6 +44,12 @@ class SuspectProfileViewController: UIViewController {
             alibiLabel.text = (curSuspect?.alibi)!
             testimonyView.text = (curSuspect?.testimony)!
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(unwindToMain), name: NSNotification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: nil)
+    }
+    
+    func unwindToMain() {
+        self.performSegue(withIdentifier: "suspectProfileToMain", sender: self)
     }
     
     override func didReceiveMemoryWarning() {

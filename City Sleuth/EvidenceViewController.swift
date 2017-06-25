@@ -28,8 +28,13 @@ class EvidenceViewController: UIViewController, UITableViewDelegate, UITableView
                 evidence.append(e)
             }
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(unwindToMain), name: NSNotification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: nil)
     }
     
+    func unwindToMain() {
+        self.performSegue(withIdentifier: "evidenceToMain", sender: self)
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

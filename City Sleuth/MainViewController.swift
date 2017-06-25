@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
+let LOCATION_FOUND_NOTIFICATION = "com.citysleuth.locationfound"
+
 class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var curCase: Case?
@@ -31,6 +33,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var tipLabel: UILabel!
     
     @IBOutlet weak var takeQuiz: UIButton!
+    
+    @IBOutlet weak var rangeIndicator: UIImageView!
+    
     
     var tap = UITapGestureRecognizer(target: nil, action: #selector(hideTipView))
     
@@ -74,6 +79,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         mapView.isScrollEnabled = true
         mapView.delegate = self
         
+        mapView.setUserTrackingMode(.followWithHeading, animated: true)
         mapView.showsUserLocation = true
         let startAnn = LocationAnnotation(location: (curCase?.locations.first!)!)
         mapView.addAnnotation(startAnn)
@@ -99,6 +105,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 20
         locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -117,11 +128,22 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             for l in (curCase?.locations)! {
                 if (curCase?.canDiscoverLocation(location: l))! {
                     let lLoc = CLLocation(latitude: l.lat, longitude: l.long)
+                    if l !== curCase?.curLoc {
+                        let dist = lLoc.distance(from: location!)
+                        if dist <= 200.0 {
+                            rangeIndicator.image = #imageLiteral(resourceName: "closeIndicator")
+                        } else if dist <= 1000.0 {
+                            rangeIndicator.image = #imageLiteral(resourceName: "halfwayIndicator")
+                        } else {
+                            rangeIndicator.image = #imageLiteral(resourceName: "farAwayIndicator")
+                        }
+                    }
                     if lLoc.distance(from: location!) <= 40.0 {
                         curCase?.discoveredLocation(location: l)
                         if mapView != nil && view.subviews.contains(mapView) {
                             mapView.removeFromSuperview()
                         }
+                        NotificationCenter.default.post(name: Notification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: self)
                         self.descriptionText.text = ""
                         backgroundImage.image = UIImage(named: l.backgroundImg)
                         self.currentLoc = l
@@ -233,6 +255,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // TO-DO : Create base view controller which these inherit from to simplify this mess
         if segue.identifier == "toSuspects" {
             let destVC = segue.destination as? SuspectsViewController
             if destVC != nil {

@@ -18,6 +18,8 @@ class LocationsViewController: UIViewController, CLLocationManagerDelegate, MKMa
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var rangeIndicator: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
@@ -39,6 +41,11 @@ class LocationsViewController: UIViewController, CLLocationManagerDelegate, MKMa
                 mapView.addAnnotation(LocationAnnotation(location: l))
             }
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(unwindToMain), name: NSNotification.Name(rawValue: LOCATION_FOUND_NOTIFICATION), object: nil)
+    }
+    
+    func unwindToMain() {
+        self.performSegue(withIdentifier: "locationToMain", sender: self)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -64,8 +71,24 @@ class LocationsViewController: UIViewController, CLLocationManagerDelegate, MKMa
         if (abs(recentTime) < 15.0) {
             // Update map
             updateMapWithLocation(location: location!)
+            
+            for l in (curCase?.locations)! {
+                if (curCase?.canDiscoverLocation(location: l))! {
+                    let lLoc = CLLocation(latitude: l.lat, longitude: l.long)
+                    
+                    if l !== curCase?.curLoc {
+                        let dist = lLoc.distance(from: location!)
+                        if dist <= 200.0 {
+                            rangeIndicator.image = #imageLiteral(resourceName: "closeIndicator")
+                        } else if dist <= 1000.0 {
+                            rangeIndicator.image = #imageLiteral(resourceName: "halfwayIndicator")
+                        } else {
+                            rangeIndicator.image = #imageLiteral(resourceName: "farAwayIndicator")
+                        }
+                    }
+                }
+            }
         }
-        
     }
 
     func updateMapWithLocation(location : CLLocation) {
